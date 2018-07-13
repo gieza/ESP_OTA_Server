@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>Http headers</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+    <body>
+        <h2>Hello!</h2>
+        timeStamp <p><span th:text="${timeStamp}"/></p>
+        remote IP <p><span th:text="${RemoteAddr}"/></p>
+        <h3>Http headers:</h3>
+
+        <div th:unless="${#lists.isEmpty(httpHeaders)}">
+            <dl th:each="httpHeader : ${httpHeaders}">
+                <dt class="bookHeadline">
+                    <span th:text="${httpHeader.name}">Header</span> =
+                </dt>
+                <dd class="bookDescription">
+                    <span th:text="${httpHeader.value}">value</span>
+                </dd>
+
+            </dl>
+        </div>
+
+    </body>
+</html>
